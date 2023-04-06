@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Ubuntu:ital,wght@0,300;0,400;0,500;0,700;1,300;1,400;1,500;1,700&display=swap" rel="stylesheet">
+  <title>Frontend Mentor | Multi-step form</title>
+
+  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
+  <style>
+    .attribution { font-size: 11px; text-align: center; }
+    .attribution a { color: hsl(228, 45%, 44%); }
+  </style>
+</head>
+<body>
+<div class="main">
+  <div class="sidebar"> 
+    <div onclick="showContent(0)" class="steps">
+      <div>
+        <h2 class="round">1</h2>
+      </div>
+      <div class="box">
+        <h3 class="faint">STEP 1<h3>
+        <h3>YOUR  INFO</h3>
+      </div>
+    </div>
+    <div onclick="showContent(1)" class="steps">
+      <div>
+        <h2 class="round">2</h2>
+      </div>
+      <div class="box">
+        <h3 class="faint">STEP 2<h3>
+        <h3>SELECT PLAN</h3>
+      </div>
+    </div>
+    <div onclick="showContent(2)" class="steps">
+      <div>
+        <h2 class="round">3</h2>
+      </div>
+      <div class="box">
+        <h3 class="faint">STEP 3<h3>
+        <h3>ADD-ONS</h3>
+      </div>
+    </div>
+    <div onclick="showContent(3)" class="steps">
+      <div>
+        <h2 class="round">4</h2>
+      </div>
+      <div class="box">
+        <h3 class="faint">STEP 4<h3>
+        <h3>SUMMARY</h3>
+      </div>
+    </div>
+  </div>
+  <div class="content hidden">
+    <div class="info">
+      <div class="info-header">Personal info</div>
+      <div class="info-detail">Please provide your name, email address, and phone number.</div>
+    </div>
+    <form action="" id="form" class="forms">
+      <div id="error"></div>
+      <div class="form">
+        <label for="Name">
+          <div>Name</div>
+        </label>
+          <input id="Name" type="text" placeholder="e.g. Stephen King">
+      </div>
+      <div id="error-1"></div>
+      <div class="form">
+        <label for="Email">
+          <div>Email Address</div>
+        </label>
+          <input id="Email" type="text" placeholder="e.g. stephenking@lorem.com">
+      </div>
+      <div id="error-2"></div>
+      <div class="form">
+        <label for="Number">
+          <div>Phone Number</div>
+        </label>
+          <input id="Number" type="tel" placeholder="e.g. +1 234 567 890">
+      </div>
+      
+      
+      <button class="btn" onclick="showContent(1)">
+        Next Steps
+      </button>
+    </form>
+   
+    
+  </div>
+  <div class="content hidden">
+    <div class="info">
+      <div class="info-header">Select your plan</div>
+      <div class="info-detail">You have the option of monthly or yearly billing.</div>
+    </div>
+    <div class="plans">
+      <div class="plan arcade" onclick="selected(0)">
+        <svg class="game-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g fill="none" fill-rule="evenodd"><circle cx="20" cy="20" r="20" fill="#FFAF7E"/><path fill="#FFF" fill-rule="nonzero" d="M24.995 18.005h-3.998v5.998h-2v-5.998H15a1 1 0 0 0-1 1V29a1 1 0 0 0 1 1h9.995a1 1 0 0 0 1-1v-9.995a1 1 0 0 0-1-1Zm-5.997 8.996h-2v-1.999h2v2Zm2-11.175a2.999 2.999 0 1 0-2 0v2.18h2v-2.18Z"/></g></svg>
+        <br><br><br>
+        <div class="game-header">Arcade</div>
+        <div class="game-detail monthly arccost"> $9/mo</div>
+        <div class="yearly hidden">
+          <div class="game-detail">$90/yr</div>
+          <div class="free">2 months free</div>
+        </div>
+      </div>
+      <div class="plan advanced" onclick="selected(1)">
+        <svg class="game-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g fill="none" fill-rule="evenodd"><circle cx="20" cy="20" r="20" fill="#F9818E"/><path fill="#FFF" fill-rule="nonzero" d="M25.057 15H14.944C12.212 15 10 17.03 10 19.885c0 2.857 2.212 4.936 4.944 4.936h10.113c2.733 0 4.943-2.08 4.943-4.936S27.79 15 25.057 15ZM17.5 20.388c0 .12-.108.237-.234.237h-1.552v1.569c0 .126-.138.217-.259.217H14.5c-.118 0-.213-.086-.213-.203v-1.583h-1.569c-.126 0-.217-.139-.217-.26v-.956c0-.117.086-.213.202-.213h1.584v-1.554c0-.125.082-.231.203-.231h.989c.12 0 .236.108.236.234v1.551h1.555c.125 0 .231.083.231.204v.988Zm5.347.393a.862.862 0 0 1-.869-.855c0-.472.39-.856.869-.856.481 0 .87.384.87.856 0 .471-.389.855-.87.855Zm1.9 1.866a.86.86 0 0 1-.87-.852.86.86 0 0 1 .87-.855c.48 0 .87.38.87.855a.86.86 0 0 1-.87.852Zm0-3.736a.862.862 0 0 1-.87-.854c0-.472.39-.856.87-.856s.87.384.87.856a.862.862 0 0 1-.87.854Zm1.899 1.87a.862.862 0 0 1-.868-.855c0-.472.389-.856.868-.856s.868.384.868.856a.862.862 0 0 1-.868.855Z"/></g></svg>
+        <br><br><br>
+        <div class="game-header">Advanced</div>
+        <div class="game-detail monthly adcost">$12/mo</div>
+        <div class="yearly hidden">
+          <div class="game-detail">$120/yr</div>
+          <div class="free">2 months free</div>
+        </div>
+      </div>
+      <div class="plan pro" onclick="selected(2)">
+        <svg class="game-icon" xmlns="http://www.w3.org/2000/svg" width="40" height="40" viewBox="0 0 40 40"><g fill="none" fill-rule="evenodd"><circle cx="20" cy="20" r="20" fill="#483EFF"/><path fill="#FFF" fill-rule="nonzero" d="M26.666 13H13.334A3.333 3.333 0 0 0 10 16.333v7.193a3.447 3.447 0 0 0 2.14 3.24c1.238.5 2.656.182 3.56-.8L18.52 23h2.96l2.82 2.966a3.2 3.2 0 0 0 3.56.8 3.447 3.447 0 0 0 2.14-3.24v-7.193A3.333 3.333 0 0 0 26.666 13Zm-9.333 6H16v1.333a.667.667 0 0 1-1.333 0V19h-1.333a.667.667 0 0 1 0-1.334h1.333v-1.333a.667.667 0 1 1 1.333 0v1.333h1.333a.667.667 0 1 1 0 1.334Zm7.333 2a2.667 2.667 0 1 1 0-5.333 2.667 2.667 0 0 1 0 5.333ZM26 18.333a1.333 1.333 0 1 1-2.667 0 1.333 1.333 0 0 1 2.667 0Z"/></g></svg>
+        <br><br><br>
+        <div class="game-header">Pro</div>
+        <div class="game-detail monthly procost">$15/mo</div>
+        <div class="yearly hidden">
+          <div class="game-detail">$150/yr</div>
+          <div class="free">2 months free</div>
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="toggle">
+        <div class="toggle-button" onclick="Animatedtoggle()">
+
+        </div>
+      </div>
+      <div class="text-1 bold">Monthly</div>
+      <div class="text-2 faints">Yearly</div>
+    </div>
+    <div class="ends">
+      <div class="faints back" onclick="showContent(0)">Go Back</div>
+      <div class="next" onclick="showContent(2)">Next Step</div>
+    </div>
+    
+    
+  </div>
+  <div class="content hidden">
+    <div class="info">
+      <div class="info-header">Pick add-ons</div>
+      <div class="info-detail">Add-ons help enhance your gaming experience.</div>
+    </div>
+   <div class="add-ons">
+    <div class="add-on Online" onclick="picked(0)">
+      <input type="checkbox" class="addbox" name="" id="check1">
+      <div class="type">
+        <h1 class="thick">Online service</h1>
+        <h1 class="thin">Access to multiplayer games</h1>
+      </div>
+      <span class="month price online">+$1/mo</span>
+      <span class="year price hidden">+$10/yr</span>
+    </div>
+    <div class="add-on Larger" onclick="picked(1)">
+      <input type="checkbox" class="addbox" name="" id="check2">
+      <div class="type">
+        <h1 class="thick">Larger storage</h1>
+        <h1 class="thin">Extra 1TB of cloud save</h1>
+      </div>
+      <span class="month price-1 larger">+$2/mo</span>
+      <span class="year price-1 hidden">+$20/yr</span>
+    </div>
+    <div class="add-on Custom" onclick="picked(2)">
+      <input type="checkbox" class="addbox" name="" id="check3">
+      <div class="type">
+        <h1 class="thick">Customizable Profile</h1>
+        <h1 class="thin">Custom theme on your profile</h1>
+      </div>
+      <span class="month price-2 customize">+$2/mo</span>
+      <span class="year price-2 hidden">+$20/yr</span>
+    </div>
+   </div>
+    <div class="ends">
+      <div class="faints back" onclick="showContent(1)">Go Back</div>
+      <div class="next" onclick="showContent(3)">Next Step</div>
+    </div>
+    
+  </div>
+  <div class="content hidden">
+    <div class="info">
+      <div class="info-header">Finishing up</div>
+      <div class="info-detail">Double-check everything looks OK before confirming.</div>
+    </div>
+    <div class="finals">
+      <div class="plansum">
+      <div class="arc hidden"><h2>Arcade</h2> <h1 class="cri-1"></h1></div>
+      <div class="adv hidden"><h2>Advanced</h2> <h1 class="cri-2"></h1></div>
+      <div class="pros hidden"><h2>Pro</h2> <h1 class="cri-3"></h1></div>
+      </div>
+      <div class="addsum">
+        <div class="onl hidden"><h2>Online service</h2> <h1 class="pri-1"></h1></div>
+        <div class="lar hidden"><h2>Larger Storage</h2> <h1 class="pri-2"></h1></div>
+        <div class="cust hidden"><h2>Customizable Profile</h2> <h1 class="pri-3"></h1></div>
+      </div>
+      <div class="total"><h2>Total</h2> <h2 class="tot-price"></h2></div>
+    </div>
+    <br><br><br><br>
+    <div class="ends">
+      <div class="faints back" onclick="showContent(2)">Go Back</div>
+      <div class="next">Confirm</div>
+    </div>
+    
+  </div>
+</div>
+  
+
+  <!-- Pick add-ons
+ 
+
+ 
+
+  <!-- Dynamically add subscription and add-on selections here -->
+
+  <!-- Total (per month/year)
+
+  Go Back
+  Confirm -->
+
+  <!-- Step 4 end -->
+
+  <!-- Step 5 start -->
+
+  <!-- Thank you!
+
+  Thanks for confirming your subscription! We hope you have fun 
+  using our platform. If you ever need support, please feel free 
+  to email us at support@loremgaming.com. -->
+
+  <!-- Step 5 end -->
+  
+  <!-- <div class="attribution">
+    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+    Coded by <a href="#">Your Name Here</a>.
+  </div> -->
+
+<script src="script.js"></script>
+</body>
+</html>
