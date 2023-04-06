@@ -22,7 +22,7 @@
     height: 430px;
     border-radius: 10px;
     min-width: 230px;
-    background-image: url('/assets/images/bg-sidebar-desktop.svg');
+    background-image: url('assets/images/bg-sidebar-desktop.svg');
     background-size: cover;
     padding: 10px;
     
